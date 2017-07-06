@@ -1,5 +1,6 @@
 set nocompatible              " required
-filetype off                  " required
+" filetype off                  " required
+filetype indent plugin on
 set noswapfile		      " no swap file created
 set t_Co=256		      " set 256 color
 let &colorcolumn=join(range(81,999),",")  " colorcolumn highlight
@@ -109,6 +110,12 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix |
 
+" Full stack setting for tab and spaces
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
 " YouCompleteMe settings
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -117,6 +124,8 @@ let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
+let g:ycm_server_use_vim_stdout = 0
+let g:ycm_server_keep_logfiles = 1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -146,9 +155,21 @@ nmap <F8> :TagbarToggle<CR>
 python3 << EOF
 import os
 
+DJANGO_SETTINGS_MODULE = 'psc.settings'
 virtualenv = os.environ.get('VIRTUAL_ENV')
 if virtualenv:
     activate_this = os.path.join(virtualenv, 'bin', 'activate_this.py')
     exec(compile(open(activate_this).read(), activate_this, 'exec'), {'__file__': activate_this})
     os.environ['DJANGO_SETTINGS_MODULE'] = DJANGO_SETTINGS_MODULE
 EOF
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height=3
