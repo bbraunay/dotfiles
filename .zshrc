@@ -111,18 +111,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Add postgre to PATH
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
-
-# Added BREW binary location in order to access several installed binaries
-export PATH="/usr/local/bin:$PATH"
-
 # Optional conda bin directory
 # export PATH="$HOME/anaconda3/bin:$PATH"
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/yanuarb/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/yanuarb/google-cloud-sdk/path.zsh.inc'; fi
