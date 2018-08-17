@@ -1,25 +1,43 @@
+# Alias for macvim
+alias vim='mvim -v'
+
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.composer/vendor/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export TERM="screen-256color"
+export EDITOR="/usr/local/bin/vim"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# pyenv settings
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH=$PYENV_ROOT/bin:$PATH
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # Python virtualenv setting
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
+# export WORKON_HOME=~/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+# source /usr/local/bin/virtualenvwrapper.sh
+
+# Go setup for mac
+export GOPATH=$HOME/go
+# export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+# export PATH=$PATH:$GOROOT/bin
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/yanuar/.oh-my-zsh
-export TERM="xterm-256color"
-export EDITOR="vim"
+export ZSH=/Users/yanuarb/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-# powerlevel9k settings
+# Powerlevel9k settings
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history virtualenv)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history virtualenv anaconda)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
@@ -101,3 +119,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+# export PATH="$HOME/anaconda3/bin:$PATH"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yanuarb/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/yanuarb/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/yanuarb/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/yanuarb/google-cloud-sdk/completion.zsh.inc'; fi
