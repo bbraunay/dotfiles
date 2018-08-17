@@ -2,7 +2,6 @@
 alias vim='mvim -v'
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="screen-256color"
 export EDITOR="/usr/local/bin/vim"
 export LANG=en_US.UTF-8
@@ -15,17 +14,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# Python virtualenv setting
-# export WORKON_HOME=~/.virtualenvs
-# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-# source /usr/local/bin/virtualenvwrapper.sh
-
 # Go setup for mac
 export GOPATH=$HOME/go
-# export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
-# export PATH=$PATH:$GOROOT/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/yanuarb/.oh-my-zsh
@@ -122,9 +113,17 @@ source $ZSH/oh-my-zsh.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add postgre to PATH
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+
+# Added BREW binary location in order to access several installed binaries
 export PATH="/usr/local/bin:$PATH"
+
+# Optional conda bin directory
 # export PATH="$HOME/anaconda3/bin:$PATH"
+
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/yanuarb/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/yanuarb/google-cloud-sdk/path.zsh.inc'; fi
 
